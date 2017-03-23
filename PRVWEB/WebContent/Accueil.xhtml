@@ -1,0 +1,25 @@
+<ui:composition template="welcomePrimefaces.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+	<body>
+
+		<ui:define name="content">
+			<h:form style="text-align: center;">
+				<p:panelGrid id="grid" cellpadding="10" columns="1" layout="grid">
+					<p:fileUpload value="Nom du Fichier en construction" mode="simple"
+						skinSimple="true" />
+					<p:commandButton value="Soumettre" ajax="false" disabled="false" />
+					<p:commandButton id="btn" value="consultation" type="button" />
+					<p:commandButton type="submit" value="ENTRER"
+						action="Index.xhtml?faces-redirect=true"></p:commandButton>
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+
+	</body>
+</ui:composition>
