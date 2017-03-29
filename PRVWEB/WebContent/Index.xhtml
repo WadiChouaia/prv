@@ -10,7 +10,7 @@
 	<body>
 		<ui:define name="content">
 			<h:form>
-				<p:dataTable var="PRVEntity" value="#{pRVJSFManagedBean.findALL()}">
+				<p:dataTable var="PRVEntity" value="#{prvJsfManagedBean.items}">
 					<p:column headerText="matricule">
 						<h:outputText value="#{PRVEntity.matriculeEmployee}" />
 					</p:column>

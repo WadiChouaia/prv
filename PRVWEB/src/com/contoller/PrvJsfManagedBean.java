@@ -14,15 +14,12 @@ import com.ejb.PRVEntityFacade;
 
 @Named("prvJsfManagedBean")
 @SessionScoped
-/**
- * @author wadi chouaia
- *
- */
 public class PrvJsfManagedBean implements Serializable {
 
 	@EJB
 	private PRVEntityFacade pRVEntityFacade;
-	private PRVEntity prvEntity = new PRVEntity();
+	private PRVEntity prvEntity ;
+	private List<PRVEntity> items = null;
 	private static final long serialVersionUID = 8904057979552029913L;
 	
 	
@@ -31,11 +28,42 @@ public class PrvJsfManagedBean implements Serializable {
 	}
 
 	public List<PRVEntity> finadAll(){
-		return this.pRVEntityFacade.findAll();
+		if (items == null) {
+            items = getpRVEntityFacade().findAll();
+        }
+        return items;
 	}
 	
 	public String add(){
 		pRVEntityFacade.create(this.prvEntity);
 		return "add";
 	}
+	
+	
+
+	public List<PRVEntity> getItems() {
+		return items;
+	}
+
+	public void setItems(List<PRVEntity> items) {
+		this.items = items;
+	}
+
+	public PRVEntityFacade getpRVEntityFacade() {
+		return pRVEntityFacade;
+	}
+
+	public void setpRVEntityFacade(PRVEntityFacade pRVEntityFacade) {
+		this.pRVEntityFacade = pRVEntityFacade;
+	}
+
+	public PRVEntity getPrvEntity() {
+		return prvEntity;
+	}
+
+	public void setPrvEntity(PRVEntity prvEntity) {
+		this.prvEntity = prvEntity;
+	}
+	
+	
 }

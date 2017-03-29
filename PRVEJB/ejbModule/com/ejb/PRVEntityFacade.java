@@ -10,18 +10,18 @@ import com.entity.PRVEntity;
  * @author wadi chouaia
  */
 @Stateless
-public class PRVEntityFacade extends AbstractFacade<PRVEntity> implements PRVEntityFacadeLocal, PRVEntityFacadeRemote {
+public class PRVEntityFacade extends AbstractFacade<PRVEntity> {
 
-    @PersistenceContext(unitName = "PRVEJB")
-    private EntityManager em;
+	@PersistenceContext(unitName = "PRVEJB")
+	private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+	@Override
+	protected EntityManager getEntityManager() {
+		return em;
+	}
 
-    public PRVEntityFacade() {
-        super(PRVEntity.class);
-    }
-    
+	public PRVEntityFacade() {
+		super(PRVEntity.class);
+	}
+
 }
