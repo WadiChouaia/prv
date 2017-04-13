@@ -5,7 +5,6 @@
 	<persistence-unit name="PRVEJB" transaction-type="JTA">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<jta-data-source>java:/MySqlCPG</jta-data-source>
-		<class>com.entity.Employee</class>
 		<class>com.entity.PRVEntity</class>
 		<class>com.entity.PrimeryKey</class>
 		<properties>
