@@ -6,13 +6,12 @@ package com.contoller;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import com.entity.*;
 import com.ejb.PRVEntityFacade;
-@ManagedBean
 @Named("prvJsfManagedBean")
 @SessionScoped
 public class PrvJsfManagedBean implements Serializable {
@@ -29,10 +28,7 @@ public class PrvJsfManagedBean implements Serializable {
 	
 	//methode pour lister tout les prv dans la base
 	public List<PRVEntity> finadAll(){
-		if (items == null) {
-            items = getpRVEntityFacade().findAll();
-        }
-        return items;
+		return this.pRVEntityFacade.findAll();
 	}
 	
 	public String add(){

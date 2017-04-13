@@ -10,6 +10,23 @@ import javax.persistence.*;
  *
  */
 @Entity
+
+@SqlResultSetMapping(
+        name= "SumMontant",
+        classes = @ConstructorResult(
+                targetClass = PrvEntitySum.class,
+                columns = {
+                    @ColumnResult(name = "matriculeEmployee" , type = Integer.class),
+                    @ColumnResult(name = "codeCard", type = Integer.class),
+                    @ColumnResult(name = "DatePRV", type = Date.class),
+                    @ColumnResult(name = "montant", type = Double.class),
+                    @ColumnResult(name = "sumMontant", type = Double.class),
+                    
+                }
+        )
+)
+
+
 @IdClass(PrimeryKey.class)
 public class PRVEntity implements Serializable {
 
@@ -19,6 +36,7 @@ public class PRVEntity implements Serializable {
 	@Id
 	private int codeCard;
 	@Id
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date datePRV;
 
 	private double montant;
