@@ -6,27 +6,28 @@ package com.contoller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import com.entity.*;
 import com.ejb.PRVEntityFacade;
-
+@ManagedBean
 @Named("prvJsfManagedBean")
 @SessionScoped
 public class PrvJsfManagedBean implements Serializable {
 
 	@EJB
-	private PRVEntityFacade pRVEntityFacade;
+	//declaration des attribues
+	//model du prv
+	private com.ejb.PRVEntityFacade pRVEntityFacade;
+	//classe entité du prv
 	private PRVEntity prvEntity ;
+	//liste des entité prv 
 	private List<PRVEntity> items = null;
 	private static final long serialVersionUID = 8904057979552029913L;
 	
-	
-	public PrvJsfManagedBean() {
-		// TODO Auto-generated constructor stub
-	}
-
+	//methode pour lister tout les prv dans la base
 	public List<PRVEntity> finadAll(){
 		if (items == null) {
             items = getpRVEntityFacade().findAll();
@@ -36,7 +37,7 @@ public class PrvJsfManagedBean implements Serializable {
 	
 	public String add(){
 		pRVEntityFacade.create(this.prvEntity);
-		return "add";
+		return "added";
 	}
 	
 	
@@ -64,6 +65,8 @@ public class PrvJsfManagedBean implements Serializable {
 	public void setPrvEntity(PRVEntity prvEntity) {
 		this.prvEntity = prvEntity;
 	}
-	
+	public PrvJsfManagedBean() {
+		
+		}
 	
 }

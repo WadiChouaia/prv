@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>PRVWEB</display-name>
 	<welcome-file-list>
-		<welcome-file>Index.xhtml</welcome-file>
+		<welcome-file>Accueil.xhtml</welcome-file>
 	
 	</welcome-file-list>
 	<servlet>
